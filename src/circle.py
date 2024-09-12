@@ -21,6 +21,3 @@ class Circle(Figure):
         return 2 * math.pi * self.radius
 
 
-a = Circle(7)
-s = Square(10)
-print(a.add_area(s))
