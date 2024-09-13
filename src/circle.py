@@ -1,6 +1,5 @@
 import math
 from src.figure import Figure
-from src.square import Square
 
 
 class Circle(Figure):
@@ -19,5 +18,3 @@ class Circle(Figure):
     @property
     def get_perimeter(self):
         return 2 * math.pi * self.radius
-
-

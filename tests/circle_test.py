@@ -2,6 +2,7 @@ import pytest
 from src.circle import Circle
 from src.square import Square
 
+
 @pytest.mark.usefixtures("login")
 class TestCircle():
 
@@ -12,7 +13,7 @@ class TestCircle():
     def test_circle_area(self, radius, expected_area):
         circle = Circle(radius=radius)
         circle_area = circle.get_area
-        assert circle_area == expected_area,\
+        assert circle_area == expected_area, \
             f"Площадь окружности должна быть равна {expected_area}, расчетная площадь {circle_area}"
 
     @pytest.mark.parametrize("radius, expected_perimeter", [
@@ -22,14 +23,14 @@ class TestCircle():
     def test_circle_perimeter(self, radius, expected_perimeter):
         circle = Circle(radius=radius)
         circle_perimeter = circle.get_perimeter
-        assert circle_perimeter == expected_perimeter,\
+        assert circle_perimeter == expected_perimeter, \
             f"Периметр окружности должен быть равен {expected_perimeter}, расчетный периметр {circle_perimeter}"
 
     def test_circle_add_area(self):
         circle = Circle(7)
         square = Square(10)
         area_sum = circle.add_area(square)
-        assert area_sum == 253.93804002589985,\
+        assert area_sum == 253.93804002589985, \
             f"Сумма площадей фигур должна быть {253.93804002589985}, рассчетная сумма {area_sum}"
 
     @pytest.mark.parametrize("radius", [0, -2, -3.45])

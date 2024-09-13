@@ -1,6 +1,7 @@
 import pytest
 from src.rectangle import Rectangle
 
+
 @pytest.mark.usefixtures("login")
 class TestRectangle():
 
@@ -11,7 +12,7 @@ class TestRectangle():
     def test_rectangle_area(self, side_a, side_b, expected_area):
         rectangle = Rectangle(side_a, side_b)
         rectangle_area = rectangle.get_area
-        assert rectangle_area == expected_area,\
+        assert rectangle_area == expected_area, \
             f"Площадь прямоугольника должна быть равна {expected_area}, расчетная площадь {rectangle_area}"
 
     @pytest.mark.parametrize("side_a, side_b, expected_perimeter", [
@@ -21,12 +22,10 @@ class TestRectangle():
     def test_rectangle_perimeter(self, side_a, side_b, expected_perimeter):
         rectangle = Rectangle(side_a, side_b)
         rectangle_perimeter = rectangle.get_perimeter
-        assert rectangle_perimeter == expected_perimeter,\
+        assert rectangle_perimeter == expected_perimeter, \
             f"Периметр прямоугольника должен быть равен {expected_perimeter}, расчетный периметр {rectangle_perimeter}"
 
-
-    @pytest.mark.parametrize("side_a, side_b",
-        [
+    @pytest.mark.parametrize("side_a, side_b", [
             (0, -2),
             (-3, 0),
             (0, 0),

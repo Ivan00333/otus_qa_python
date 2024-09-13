@@ -1,6 +1,7 @@
 import pytest
 from src.square import Square
 
+
 @pytest.mark.usefixtures("login")
 class TestSquare():
 
@@ -11,7 +12,7 @@ class TestSquare():
     def test_square_area(self, side_a, expected_area):
         square = Square(side_a)
         square_area = square.get_area
-        assert square_area == expected_area,\
+        assert square_area == expected_area, \
             f"Площадь квадрата должна быть равна {expected_area}, расчетная площадь {square_area}"
 
     @pytest.mark.parametrize("side_a, expected_perimeter", [
@@ -21,9 +22,8 @@ class TestSquare():
     def test_square_perimeter(self, side_a, expected_perimeter):
         square = Square(side_a)
         square_perimeter = square.get_perimeter
-        assert square_perimeter == expected_perimeter,\
+        assert square_perimeter == expected_perimeter, \
             f"Периметр прямоугольника должен быть равен {expected_perimeter}, расчетный периметр {square_perimeter}"
-
 
     @pytest.mark.parametrize("side_a", [0, -2])
     def test_negative_side_less_than_0(self, side_a):
